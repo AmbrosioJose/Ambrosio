@@ -5,7 +5,16 @@ export const store = {
   state: {
     seedData
   },
-  setActiveCourse(fieldId){
-      this.state.seedData.forEach(currentField => currentField.id===fieldId ? currentField.active = true : currentField.active = false )
+  setActiveComponent(id){
+    this.state.seedData.forEach(currentField => currentField.id===id ? currentField.active = true : currentField.active = false )
+  },
+  setActiveComponentByName(name){
+    this.state.seedData.forEach(currentField => currentField.name.toLocaleLowerCase()===name.toLocaleLowerCase() ? currentField.active = true : currentField.active = false )
+  },
+  getActiveComponent(){
+    return this.state.seedData.find(component => {return component.active===true})
+  },
+  getNextComponentId(id){
+    
   }
 }
