@@ -25,11 +25,12 @@
                 </div>
             </div>
         </div>
+        <button class="button is-large is-grey-lighter is-outlined is-rounded" v-show="field.active" @click="smooth('ml')"><i class="fa fa-chevron-down"></i></button>
     </section>
 </template>
 
 <script>
-
+    import { store } from '../store.js';
     export default {
         name: 'Android',
         data () {
@@ -56,7 +57,50 @@
             plusDivs(n) {
 
                 this.showDivs(this.slideIndex += n);
+            },
+                      smooth (idName) {
+            let componentStart = window.document.getElementById(idName).offsetTop
+            
+            store.setActiveComponentByName(idName)
+            console.log('active: ' + store.getActiveComponent().name)
+            let browser=this.browser()
+            console.log(browser)
+             if(browser=='Edge') //IF IE > 10
+            {
+              console.log('EDGE')
+              window.scrollTo(0,componentStart)
             }
+            else if( browser=='Chrome') 
+            {
+
+              console.log('CHROME')
+              window.scrollTo({
+                top: componentStart,
+                behavior: 'smooth'
+              })
+            }  else{
+              console.log('idk')
+              window.scrollTo(0,componentStart)
+            }
+          },
+          browser () {
+            if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+              return('Opera');
+            } else if(navigator.userAgent.indexOf("Edge") != -1) {
+              return('Edge');
+            } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+              return('Chrome');
+            } else if(navigator.userAgent.indexOf("Safari") != -1) {
+              return('Safari');
+            } else if(navigator.userAgent.indexOf("Firefox") != -1 ) {
+              return('Firefox');
+            } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) { //IF IE > 10
+              return('IE'); 
+            }  else {
+              return('unknown');
+            }
+    
+          }
         },
         mounted() {
             this.showDivs(1)

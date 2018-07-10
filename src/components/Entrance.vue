@@ -4,22 +4,19 @@
     <div class="navbar-brand">
       <a class="navbar-item">
         
-        <h1 class="title has-text-white"><img src="../assets/codeIcon.png" height="40" width="35"/> Ambrosio</h1>
+        <h1 class="title has-text-white"> <img src="../assets/codeIcon.png" height="40" width="35"/> Ambrosio </h1>
       </a>
     </div >
     
-    <div class="navbar-end ">
+    <div class="navbar-start ">
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
       <div class="navbar-menu ">
-        <a class="navbar-item has-text-white " id="mItem">
-          Home
-        </a>
         <a class="navbar-item has-text-white" id="mItem">
-          Powered by
+          Home
         </a>
         <a class="navbar-item has-text-white"  id="mItem"  @click="smooth('footer')">
           Contact
@@ -80,6 +77,7 @@
             let componentStart = window.document.getElementById(idName).offsetTop
             
             store.setActiveComponentByName(idName)
+            console.log('active: ' + store.getActiveComponent().name)
             let browser=this.browser()
             console.log(browser)
              if(browser=='Edge') //IF IE > 10

@@ -2,10 +2,10 @@
   <div id="app">
   
     <Entrance id="Entrance"/>
-    <Web :field="sharedState.seedData[0]"   id="Web"/>
-    <Robotics :field="sharedState.seedData[1]" id="Robotics"/>
-    <Android :field="sharedState.seedData[2]" id="Android"/>
-    <ML :field="sharedState.seedData[3]" id="ml"/>
+    <Web :field="sharedState.seedData[1]"   id="Web"/>
+    <Robotics :field="sharedState.seedData[2]" id="Robotics"/>
+    <Android :field="sharedState.seedData[3]" id="Android"/>
+    <ML :field="sharedState.seedData[4]" id="ml"/>
 
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
     Robotics
   },
   methods: {
-    }
+  }
 }
 </script>
 

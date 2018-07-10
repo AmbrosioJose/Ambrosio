@@ -4,7 +4,7 @@
             <div class="container" >
                 <div class="columns">
                     <div class="column is-centered has-text-centered is-two-fifth">
-                        <img src="../assets/globeIcon.png" class="animated infinite bounce">
+                        <img src="../assets/globeIcon.png" class="animated  bounce">
                         <h1 class="title is-2">Web</h1>
                         <h2 class="subtitle is-4">A collection of different Web apps</h2>
                         
@@ -51,31 +51,65 @@
             </div>
         </div>
 
-        <button class="button is-large is-grey-lighter is-outlined is-rounded"  @click="smooth('Robotics')"><i class="fa fa-chevron-down"></i></button>
+        <button  class="button is-large is-grey-lighter is-outlined is-rounded" v-show="field.active" @click="smooth('Robotics')"><i class="fa fa-chevron-down"></i></button>
     </section>
 </template>
 
 <script>
+    import { store } from '../store.js';
     import anime from 'animejs'
     export default {
         name: 'Web',
         data () {
             return {
-                two:false,
-                imageSrc:"src/assets/astro.jpg"
+                two:false
             }
-        },
-        components: {
         },
         props: ['field'],
         methods: {
-            smooth (idName) {
-                let componentStart = window.document.getElementById(idName).offsetTop
-    	        window.scrollTo({
+          smooth (idName) {
+            let componentStart = window.document.getElementById(idName).offsetTop
+            
+            store.setActiveComponentByName(idName)
+            console.log('active: ' + store.getActiveComponent().name)
+            let browser=this.browser()
+            console.log(browser)
+             if(browser=='Edge') //IF IE > 10
+            {
+              console.log('EDGE')
+              window.scrollTo(0,componentStart)
+            }
+            else if( browser=='Chrome') 
+            {
+
+              console.log('CHROME')
+              window.scrollTo({
                 top: componentStart,
                 behavior: 'smooth'
-                })
-            },
+              })
+            }  else{
+              console.log('idk')
+              window.scrollTo(0,componentStart)
+            }
+          },
+          browser () {
+            if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+              return('Opera');
+            } else if(navigator.userAgent.indexOf("Edge") != -1) {
+              return('Edge');
+            } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+              return('Chrome');
+            } else if(navigator.userAgent.indexOf("Safari") != -1) {
+              return('Safari');
+            } else if(navigator.userAgent.indexOf("Firefox") != -1 ) {
+              return('Firefox');
+            } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) { //IF IE > 10
+              return('IE'); 
+            }  else {
+              return('unknown');
+            }
+    
+          },
             mouseOver (x) {
 
                 let el = document.querySelector(x)
