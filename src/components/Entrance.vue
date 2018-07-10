@@ -1,66 +1,68 @@
 <template>
-
-<section class="hero is-fullheight is-dark" >
-  <!-- Hero head: will stick at the top -->
-  <div class="hero-head">
-    <header class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item">
-            <h1><strong>Ambrosio</strong></h1>
-          </a>
-        </div>
-        <div id="navbarMenuHeroC" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item is-active">
-              Home
-            </a>
-            <a class="navbar-item">
-              Powered by
-            </a>
-            <a class="navbar-item"  @click="smooth('footer')">
-              Contact
-            </a>
-            <a class="navbar-item" href="https://github.com/btmnAmbrosio" target="_blank">
-              Github
-            </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-              <span aria-hidden="true">a</span>
-              <span aria-hidden="true">b</span>
-              <span aria-hidden="true">d</span>
-              </a>
-          </div>
-        </div>
+<div>
+<nav class="navbar has-text-weight-bold is-black " role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        
+        <h1 class="title has-text-white"><img src="../assets/codeIcon.png" height="40" width="35"/> Ambrosio</h1>
+      </a>
+    </div >
+    
+    <div class="navbar-end ">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      <div class="navbar-menu ">
+        <a class="navbar-item has-text-white " id="mItem">
+          Home
+        </a>
+        <a class="navbar-item has-text-white" id="mItem">
+          Powered by
+        </a>
+        <a class="navbar-item has-text-white"  id="mItem"  @click="smooth('footer')">
+          Contact
+        </a>
+        <a class="navbar-item has-text-white"  id="mItem" href="https://github.com/btmnAmbrosio" target="_blank">
+          Github
+        </a>
       </div>
-    </header>
-  </div>
+
+    </div>
+  </nav>
+<section class="hero is-fullheight is-black" id="back">
+
 
   <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
-    <div class="container has-text-centered">
+  <div class="hero-header">
+    <div class="container has-text-centered ">
     <div class="columns">
-        <div class="column">
-            <img src="../assets/btmn.jpg" width="400" height="400">
-        </div>
         <div class="column" id="landing-text">
-            <h1 class="title">
+          <h1 class="title is-1 has-text-weight-bold">
                 Jose Ambrosio
             </h1>
-            <h2 class="subtitle">
+            <h2 class="subtitle is-2 is-capitalized has-text-weight-semibold" id="intro">
                 I'm a software developer with an interest in web development, android, robotics, and machine learning.
             </h2>
-            <a class="button is-danger is-outlined is-rounded"  @click="smooth('Web')">View Work</a>
+            <a class="button is-danger is-inverted is-outlined is-rounded"  @click="smooth('Web')">View Work</a>
         </div>
     </div>
-
+    <div class="columns">
+      <div class="column" id="landing-text">
+      </div>
+    </div>
     </div>
   </div>
 
+
 </section>
+  </div>
 </template>
 
 <script>
     import { store } from '../store.js';
+    import anime from 'animejs'
     
     
     export default {
@@ -75,34 +77,88 @@
         },
         methods: {
           smooth (idName) {
-            let size2 = window.document.getElementById(idName).offsetTop
-            // let size = window.document.getElementById('web').offsetHeight
-            // console.log(size)
-            console.log('active: '+store.getActiveComponent().name)
+            let componentStart = window.document.getElementById(idName).offsetTop
+            
             store.setActiveComponentByName(idName)
-            console.log('active2: '+store.getActiveComponent().name)
-    	      window.scrollTo({
-              top: size2,
-              behavior: 'smooth'
-            })
+            let browser=this.browser()
+            console.log(browser)
+             if(browser=='Edge') //IF IE > 10
+            {
+              console.log('EDGE')
+              window.scrollTo(0,componentStart)
+            }
+            else if( browser=='Chrome') 
+            {
+
+              console.log('CHROME')
+              window.scrollTo({
+                top: componentStart,
+                behavior: 'smooth'
+              })
+            }  else{
+              console.log('idk')
+              window.scrollTo(0,componentStart)
+            }
+          },
+          browser () {
+            if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+              return('Opera');
+            } else if(navigator.userAgent.indexOf("Edge") != -1) {
+              return('Edge');
+            } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+              return('Chrome');
+            } else if(navigator.userAgent.indexOf("Safari") != -1) {
+              return('Safari');
+            } else if(navigator.userAgent.indexOf("Firefox") != -1 ) {
+              return('Firefox');
+            } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) { //IF IE > 10
+              return('IE'); 
+            }  else {
+              return('unknown');
+            }
+    
           }
-        }
+        },
+        mounted() {
+          anime({
+            targets: '#lineDrawing .lines path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 2000,
+            delay: function(el, i) { return i * 250 },
+            direction: 'alternate',
+            loop: false
+          });
+        },
     }
 </script>
 
 <style>
-  .h1,h2,#title{
-    text-shadow: .5px .5px .5px #111111;
-  }
+
 
   #landing-text {
 
-  height: 160 vh;
+
   justify-content: center;
   align-items: center;
   text-align: center;
   padding-top: 12rem;
   padding-right: 1rem;
   padding-left: 1rem;
+  text-shadow: 3px 2px 4px #111111;
+  
 }
+#intro{
+  text-shadow: 4px 4px 10px #111111;
+}
+#back{
+   background-image: url("../assets/wave.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#mItem:hover{
+  background-color:#000000;
+}
+
 </style>

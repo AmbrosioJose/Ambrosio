@@ -6,7 +6,21 @@
                     <div class="column is-centered has-text-centered">
                         <img src="../assets/androidIcon.png">
                         <h1 class="title">Android</h1>
-                        <img v-for="link in field.projects[0].pictures" :src="link" width="400" height="400" ></img>
+                        <p class="subtitle">We made an android app similar to yelp for on-the-go food vendors. </p>
+                    </div>
+                    <div class="column is-centered has-text-centered">
+                       
+                        <td>
+                            <div class="img-container">
+                                <img src="../assets/mainScreen.png"  class="top"/>
+                                <img src="../assets/mapCarts.png"  class="top" />
+                                <img src="../assets/cart.png"  class="top" />
+                                <img src="../assets/userProfile.png"  class="top"/>
+                                <img src="../assets/android.png" class="bottom" />
+                                <button class="button is-danger is-outlined is-rounded" id="left" @click="plusDivs(-1)">&#10094;</button>
+                                <button class="button is-danger is-outlined is-rounded" id="right" @click="plusDivs(1)">&#10095;</button>
+                            </div>
+                        </td>
                     </div>
                 </div>
             </div>
@@ -15,7 +29,7 @@
 </template>
 
 <script>
-    
+
     export default {
         name: 'Android',
         data () {
@@ -27,7 +41,25 @@
         },
         props: ['field'],
         methods: {
+            showDivs (n){
 
+                let x = this.$el.getElementsByClassName('top')
+                if (n > x.length) {this.slideIndex = 1}
+                if (n < 1) {this.slideIndex = x.length}
+                for (let i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+
+                }
+                x[this.slideIndex-1].style.display = "block";
+                
+            },
+            plusDivs(n) {
+
+                this.showDivs(this.slideIndex += n);
+            }
+        },
+        mounted() {
+            this.showDivs(1)
         }
     }
 </script>
@@ -38,6 +70,31 @@
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
+    }
+    .top{
+        height: 33.45rem;
+        width: 18.7rem;
+    }
+    .img-container { 
+        position: relative; 
+        height: 40rem;
+        width: 30rem;
+        }
+
+    .img-container .top {
+        position: absolute;
+        top: 97.8px;
+        left: 86.8px;
+    }
+    #left{
+        position: absolute;
+        top: 700px;
+        left: 200px;
+    }
+    #right{
+        position: absolute;
+        top: 700px;
+        left:250px;
     }
 
 </style>
