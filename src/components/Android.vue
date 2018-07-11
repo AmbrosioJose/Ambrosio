@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-centered has-text-centered">
-                        <img src="../assets/androidIcon.png">
+                        <img src="../assets/androidIcon.png" :class="{'animated flip ': field.active}" style=" webkit-animation-delay: .6s;">
                         <h1 class="title">Android</h1>
                         <p class="subtitle">We made an android app similar to yelp for on-the-go food vendors. </p>
                     </div>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+    import anime from 'animejs'
     import { store } from '../store.js';
     export default {
         name: 'Android',

@@ -4,18 +4,18 @@
             <div class="container" >
                 <div class="columns">
                     <div class="column is-centered has-text-centered is-two-fifth">
-                        <img src="../assets/globeIcon.png" class="animated  bounce">
+                        <img src="../assets/globeIcon.png" :class="{'animated bounce ': field.active}" style=" webkit-animation-delay: .6s;">
                         <h1 class="title is-2">Web</h1>
                         <h2 class="subtitle is-4">A collection of different Web apps</h2>
                         
                     </div>
                     <div class="column is-centered has-text-centered is-half">
                         <div v-if="two" id="show" >
-                            <div class=" has-text-left">
-                                <a  v-if="two" class="delete is-large fadeInDown animated" style=" webkit-animation-delay: .6s; padding-bottom:10px;"  @click="toChooser()" ></a>
+                            <div class=" has-text-left" style=" padding-bottom:30px;">
+                                <a  v-if="two" class="delete is-large fadeInDown animated" style=" webkit-animation-delay: .6s;"  @click="toChooser()" ></a>
                             </div>
                             <div>
-                                <img class="fadeInDown animated" style=" webkit-animation-delay: .25s; padding-top:10px;" :src="this.imageSrc" width="700px" height="650px"></img>
+                                <img class="fadeInDown animated" style=" webkit-animation-delay: .25s; padding-top:0px; border: solid 1px #CCC; box-shadow: 2px 2px 5px #9999; padding: 5px; border: solid 1px #EFEFEF;" :src="this.imageSrc" width="700px" height="650px"></img>
                             </div>
                         </div>
                         <div class="tile is-ancestor" v-if="!two">
@@ -130,12 +130,12 @@
                 });
             },
             takeStage(id){
-                console.log(id)
+
                 let el = document.querySelectorAll('.is-child')
-                console.log(el)
+
 
                 el.forEach(tile=>{tile.className='tile is-child fadeOutDown animated'})
-                console.log(el)
+
                 if(id=='#one'){
                     this.imageSrc = "src/assets/cli3.png"
                 } else if(id=='#two'){

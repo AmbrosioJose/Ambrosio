@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="column is-center has-text-centered">
-                        <img src="../assets/robotIcon.png">
+                        <img src="../assets/robotIcon.png" :class="{'animated tada ': field.active}" style=" webkit-animation-delay: .6s;">
                         <h1 class="title">Robotics</h1>
                         <h2 class="subtitle">Swarmathon Competition</h2>
                         <p class="subtitle">I was part of a team competing in the Nasa Swarmathon Competition, which involves optimizing a rover and implementing a search algorithm so that the rover can autonomously collect small cubes. Part of what I did was filter some of the rover’s sensors as well as implemented A star to make the rover’s movement more efficient.</p>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+    import anime from 'animejs'
     import { store } from '../store.js';
     export default {
         name: 'Robotics',
@@ -114,8 +115,12 @@
         height: 500px;
         width: 700px;
 
-        border-radius: 20px;
-        box-shadow: 1px 1px 5px #222222; 
+        padding: 5px;
+
+        border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;
 
 
     }

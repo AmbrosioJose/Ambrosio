@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Showcase from './components/Showcase.vue'
+
 import Entrance from './components/Entrance.vue'
 import Android from './components/Android.vue'
 import ML from './components/ML.vue'
