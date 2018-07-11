@@ -1,4 +1,4 @@
-# ambrosio
+# Ambrosio
 
 > A resume website
 
