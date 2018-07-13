@@ -2,8 +2,8 @@
     <section class="hero is-fullheight  is-white" >
         <div class="hero-body ">
             <div class="container" >
-                <div class="columns">
-                    <div class="column is-centered has-text-centered is-two-fifth">
+                <div class="columns ">
+                    <div class="column is-centered has-text-centered is-half">
                         <img src="../assets/globeIcon.png" :class="{'animated bounce ': field.active}" style=" webkit-animation-delay: .6s;">
                         <h1 class="title is-2">Web</h1>
                         <h2 class="subtitle is-4">A collection of different Web apps</h2>
@@ -15,7 +15,7 @@
                                 <a  v-if="two" class="delete is-large fadeInDown animated" style=" webkit-animation-delay: .6s;"  @click="toChooser()" ></a>
                             </div>
                             <div>
-                                <img class="fadeInDown animated" style=" webkit-animation-delay: .25s; padding-top:0px; border: solid 1px #CCC; box-shadow: 2px 2px 5px #9999; padding: 5px; border: solid 1px #EFEFEF;" :src="this.imageSrc" width="700px" height="650px"></img>
+                                <img class="fadeInDown animated" style=" webkit-animation-delay: .25s; padding-top:0px; border: solid 2px #CCC; box-shadow: 2px 2px 5px #9999; padding: 5px; border: solid 2px #EFEFEF;" :src="this.imageSrc" width="700px" height="650px"></img>
                             </div>
                         </div>
                         <div class="tile is-ancestor" v-if="!two">
@@ -117,7 +117,9 @@
                 let domNode = anime({
                     targets: el,
                     translateY: -10,
+                    
                 });
+                
             },
             out(x){
 
@@ -126,8 +128,9 @@
                 let domNode = anime({
                     targets: el,
                     translateY: 0,
-                    easing: 'linear'
+                    
                 });
+                
             },
             takeStage(id){
 
@@ -169,7 +172,7 @@
 
     
     .is-child:hover{
-        box-shadow: .5px .5px .5px #000000;
+        box-shadow: 1px 1px 5px 2px #cccccc;
         cursor:pointer;
     }
     #show {

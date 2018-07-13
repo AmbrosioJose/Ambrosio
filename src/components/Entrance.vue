@@ -34,7 +34,7 @@
   <!-- Hero content: will be in the middle -->
   <div class="hero-header">
     <div class="container has-text-centered ">
-    <div class="columns">
+    <div class="columns is-mobile">
         <div class="column" id="landing-text">
           <h1 class="title is-1 has-text-weight-bold">
                 Jose Ambrosio

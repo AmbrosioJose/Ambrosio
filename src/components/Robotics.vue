@@ -3,6 +3,12 @@
         <div class="hero-body ">
             <div class="container">
                 <div class="columns">
+                    <div class="column is-center has-text-centered">
+                        <img src="../assets/robotIcon.png" :class="{'animated tada ': field.active}" style=" webkit-animation-delay: .6s;">
+                        <h1 class="title">Robotics</h1>
+                        <h2 class="subtitle">Swarmathon Competition</h2>
+                        <p class="subtitle">I was part of a team competing in the Nasa Swarmathon Competition, which involves optimizing a rover and implementing a search algorithm so that the rover can autonomously collect small cubes. Part of what I did was filter some of the rover’s sensors as well as implemented A star to make the rover’s movement more efficient.</p>
+                    </div>
                     <div class="column is-centered has-text-centered">
                         <td>
                             <div class="img-container-robo">
@@ -18,12 +24,6 @@
                             <button class="button is-danger is-outlined is-rounded" id="left-robo" @click="plusDivs(-1)"><strong>&#10094;</strong></button>
                             <button class="button is-danger is-outlined is-rounded" id="right-robo" @click="plusDivs(1)"><strong>&#10095;</strong></button>
                         </div>
-                    </div>
-                    <div class="column is-center has-text-centered">
-                        <img src="../assets/robotIcon.png" :class="{'animated tada ': field.active}" style=" webkit-animation-delay: .6s;">
-                        <h1 class="title">Robotics</h1>
-                        <h2 class="subtitle">Swarmathon Competition</h2>
-                        <p class="subtitle">I was part of a team competing in the Nasa Swarmathon Competition, which involves optimizing a rover and implementing a search algorithm so that the rover can autonomously collect small cubes. Part of what I did was filter some of the rover’s sensors as well as implemented A star to make the rover’s movement more efficient.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
         padding-top:10px;
     }
     .subtitle{
-        text-shadow: .1px 1px 1px #111111; 
+        text-shadow: .1px .3px .3px #111111; 
     }
 
 </style>
