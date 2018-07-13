@@ -2,14 +2,13 @@
     <section class="hero is-fullheight is-white" >
         <div class="hero-body">
             <div class="container">
-                <div class="columns">
-                    <div class="column is-centered has-text-centered">
+                <div class="columns is-multiline">
+                    <div class="column is-half is-centered has-text-centered">
                         <img src="../assets/androidIcon.png" :class="{'animated flip ': field.active}" style=" webkit-animation-delay: .6s;">
                         <h1 class="title">Android</h1>
                         <p class="subtitle">We made an android app similar to yelp for on-the-go food vendors. </p>
                     </div>
-                    <div class="column is-centered has-text-centered">
-                       
+                    <div class="column is-half is-centered has-text-left">
                         <td>
                             <div class="img-container">
                                 <img src="../assets/mainScreen.png"  class="top"/>
