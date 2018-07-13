@@ -1,7 +1,7 @@
 module.exports = {
   apps : [{
     name      : 'Ambrosio',
-    script    : 'npm run dev',
+    script    : 'npm run prod',
     env: {
       NODE_ENV: 'development'
     },
@@ -16,7 +16,7 @@ module.exports = {
       host : '206.189.211.158',
       ref  : 'origin/master',
       repo : 'git@github.com:repo.git',
-      path : '/var/www/development',
+      path : '/var/www/production',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }

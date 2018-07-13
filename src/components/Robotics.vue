@@ -128,7 +128,7 @@
         padding-top:10px;
     }
     .subtitle{
-        text-shadow: .1px 1px 1px #111111; 
+        text-shadow: .1px .2px .2px #111111; 
     }
 
 </style>

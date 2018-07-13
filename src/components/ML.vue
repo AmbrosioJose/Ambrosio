@@ -6,7 +6,7 @@
                     <img src="../assets/brainIcon.png" :class="{'animated zoomIn ': field.active}" style=" webkit-animation-delay: .6s;">
                     <h1 class="title is-2">Machine Learning</h1>
                     <h2 class="subtitle is-3">License Plate Reader</h2>
-                    <p class="subtitle is-4">A partner and a used Python, scikit-learn, and opencv to read the characters of a license plate</p>
+                    <p class="subtitle is-4">A partner and I used Python, scikit-learn, and opencv to read the characters of a license plate</p>
                 </div>
                 <div class="column is-centered  is-8 has-text-centered">
                         <iframe src="/src/assets/ReadLetters.html"   :width="this.columnWidth" :height="this.columnHeight" class="mlDisplay" > 

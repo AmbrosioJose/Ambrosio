@@ -126,7 +126,6 @@
                 let domNode = anime({
                     targets: el,
                     translateY: 0,
-                    easing: 'linear'
                 });
             },
             takeStage(id){
@@ -169,7 +168,7 @@
 
     
     .is-child:hover{
-        box-shadow: .5px .5px .5px #000000;
+        box-shadow: 1px 1px 5px 2px #cccccc;
         cursor:pointer;
     }
     #show {

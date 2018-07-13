@@ -1,4 +1,4 @@
-{
+ {
   "name": "ambrosio",
   "description": "A resume website",
   "version": "1.0.0",
@@ -7,7 +7,8 @@
   "private": false,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --port 80",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "prod": "cross-env NODE_ENV=production webpack-dev-server --host 0.0.0.0 --port 80",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules -p ",
     "start": "webpack-dev-server"
   },
   "dependencies": {
