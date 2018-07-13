@@ -2,7 +2,10 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: [
+    './src/main.js',
+    'webpack-dev-server/client?http://0.0.0.0:80'
+    ],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -48,8 +51,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
-  },
+    overlay: true,
+    disableHostCheck : true,
+    inline: true
+    },
   performance: {
     hints: false
   },
