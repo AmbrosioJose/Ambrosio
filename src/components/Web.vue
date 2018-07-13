@@ -128,7 +128,6 @@
                 let domNode = anime({
                     targets: el,
                     translateY: 0,
-                    
                 });
                 
             },
