@@ -42,7 +42,7 @@
             <h2 class="subtitle is-2 is-capitalized has-text-weight-semibold" id="intro">
                 I'm a software developer with an interest in web development, android, robotics, and machine learning.
             </h2>
-            <a class="button is-danger is-inverted is-outlined is-rounded"  @click="smooth('Web')">View Work</a>
+            <a class="button is-danger is-inverted is-rounded"  @click="smooth('Web')">View Work</a>
         </div>
     </div>
     <div class="columns">
@@ -143,7 +143,7 @@
   padding-top: 12rem;
   padding-right: 1rem;
   padding-left: 1rem;
-  text-shadow: 3px 2px 4px #111111;
+
   
 }
 #intro{
@@ -153,6 +153,8 @@
    background-image: url("../assets/wave.png");
     background-repeat: no-repeat;
     background-position: center bottom;
+    /*background-attachment: fixed;*/
+
 }
 
 #mItem:hover{
