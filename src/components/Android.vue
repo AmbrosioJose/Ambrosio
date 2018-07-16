@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <button class="button is-large is-grey-lighter is-outlined is-rounded" v-show="field.active" @click="smooth('ml')"><i class="fa fa-chevron-down"></i></button>
+        <!--<button class="button is-large is-grey-lighter is-outlined is-rounded" v-show="field.active" @click="smooth('ml')"><i class="fa fa-chevron-down"></i></button>-->
     </section>
 </template>
 
