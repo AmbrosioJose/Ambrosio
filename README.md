@@ -1,6 +1,6 @@
 # Ambrosio
 
-> A resume website
+> A portfolio website: J-Ambrosio.com
 
 ## Build Setup
 
